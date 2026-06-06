@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lumina Chronos — Pomodoro for Wear OS</title>
-    <meta name="description" content="A standalone Pomodoro timer for Wear OS. Color-band cues, ambient-mode visibility, no phone required." />
+    <title>Lumina Chronos — Pomodoro for Android</title>
+    <meta name="description" content="A focused Pomodoro timer for Android. Color-band cues, home-screen widget, offline by design — no accounts, no tracking." />
     <style>
         :root {
             color-scheme: dark;
@@ -71,7 +71,7 @@
         }
         .screenshots {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 1rem;
             margin: 1.5rem 0 0;
             list-style: none;
@@ -81,7 +81,9 @@
         .screenshots img {
             width: 100%;
             height: auto;
-            border-radius: 50%;
+            border-radius: 14px;
+            aspect-ratio: 9 / 20;
+            object-fit: cover;
             background: #000;
             display: block;
         }
@@ -96,37 +98,38 @@
 <body>
 <main>
     <h1>Lumina Chronos</h1>
-    <p class="tagline">A standalone Pomodoro timer for Wear OS. Lives on your wrist — no phone, no network, no account.</p>
+    <p class="tagline">A focused Pomodoro timer for Android. Offline by design — no accounts, no network, no tracking.</p>
 
     <h2>What it does</h2>
     <ul>
-        <li><strong>Color-band cues</strong> — the progress ring shifts green → yellow → red so you can read your state in a glance.</li>
-        <li><strong>Final-5-second ticks</strong> — audible countdown so you can hear sessions end with the screen off.</li>
-        <li><strong>Ambient persistence</strong> — the timer stays visible in low-power mode when your wrist drops.</li>
-        <li><strong>Pause &amp; Resume from the notification</strong> — control sessions without opening the app.</li>
-        <li><strong>Configurable</strong> — work, short break, long break, rounds, volume, vibration, auto-start, tick.</li>
+        <li><strong>Color-band progress ring</strong> — green flow, yellow Slow Down, red Finish.</li>
+        <li><strong>Final-5-second audible ticks</strong> so you can finish a thought without staring at the screen.</li>
+        <li><strong>Home-screen widget</strong> with play, pause, stop, reset, settings, and quotes — backed by a foreground service so it stays accurate while you focus.</li>
+        <li><strong>Daily Spark</strong> — built-in focus quotes between sessions.</li>
+        <li><strong>Pause on minimize</strong>, configurable durations, rounds, volume, vibration, auto-start, orientation.</li>
+        <li><strong>Verified offline</strong> — the manifest declares no <code>INTERNET</code> permission at all.</li>
     </ul>
 
     <h2>Screenshots</h2>
     <ul class="screenshots">
-        <li><figure><img src="screenshots/01-run.png" alt="Active timer with green progress ring" /><figcaption>Run — color-band cues</figcaption></figure></li>
-        <li><figure><img src="screenshots/02-slow-down.png" alt="Slow Down phase, yellow ring" /><figcaption>Slow Down phase</figcaption></figure></li>
-        <li><figure><img src="screenshots/03-finish.png" alt="Final stretch, red ring" /><figcaption>Finish — final ticks</figcaption></figure></li>
-        <li><figure><img src="screenshots/04-short-break.png" alt="Short break screen" /><figcaption>Short break</figcaption></figure></li>
-        <li><figure><img src="screenshots/05-long-break.png" alt="Long break, round 4 of 4" /><figcaption>Long break</figcaption></figure></li>
-        <li><figure><img src="screenshots/06-break-quote.png" alt="Reflective quote shown during rest" /><figcaption>Break quote</figcaption></figure></li>
-        <li><figure><img src="screenshots/07-settings-durations.png" alt="Settings — durations and rounds" /><figcaption>Settings — durations</figcaption></figure></li>
-        <li><figure><img src="screenshots/08-settings-audio.png" alt="Settings — audio and behavior" /><figcaption>Settings — audio</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-01-ready.png" alt="Timer ready, green ring" /><figcaption>Ready</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-02-run.png" alt="Running, green phase" /><figcaption>Run — green flow</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-03-slow-down.png" alt="Slow Down, yellow ring" /><figcaption>Slow Down</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-04-finish.png" alt="Finish, red ring, final ticks" /><figcaption>Finish</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-05-short-break.png" alt="Short break, cyan ring" /><figcaption>Short break</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-06-long-break.png" alt="Long break, round 4 of 4" /><figcaption>Long break</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-07-quotes.png" alt="Daily Spark focus quotes" /><figcaption>Daily Spark</figcaption></figure></li>
+        <li><figure><img src="screenshots/phone-08-settings.png" alt="Settings — durations, sound, haptics" /><figcaption>Settings</figcaption></figure></li>
     </ul>
 
     <h2>Requirements</h2>
     <ul>
-        <li>Wear OS 3 or newer (Android API 30+)</li>
-        <li>Watch with a vibration motor recommended</li>
+        <li>Android 8.0 (API 26) or newer</li>
+        <li>Phone with a vibration motor recommended for haptic cues</li>
     </ul>
 
     <h2>Privacy</h2>
-    <p>No data is collected. No network requests. All settings are stored locally on the watch. <a href="privacy.html">Read the full privacy policy</a>.</p>
+    <p>No data is collected. No network requests. All settings are stored locally on the device. <a href="privacy.html">Read the full privacy policy</a>.</p>
 
     <div class="links">
         <a href="privacy.html">Privacy Policy</a>
