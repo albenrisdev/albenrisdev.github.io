@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumina Chronos — Pomodoro for iOS</title>
+    <meta name="description" content="A focused Pomodoro timer for iPhone and iPad. Color-band cues, glowing timer ring, built-in focus quotes — offline by design. No accounts, no network, no tracking." />
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #111316;
+            --fg: #e7e9ec;
+            --muted: #9aa0a6;
+            --accent: #6cc070;
+            --accent-soft: rgba(108, 192, 112, 0.12);
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.55;
+        }
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 6rem;
+        }
+        .crumbs {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0 0 1.5rem;
+        }
+        .crumbs a { color: var(--muted); }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--muted);
+            margin: 0 0 2.5rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+            margin: 2.5rem 0 0.75rem;
+        }
+        ul { padding-left: 1.25rem; }
+        li { margin: 0.4rem 0; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .links a {
+            display: inline-block;
+            padding: 0.6rem 1.1rem;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .links a:hover { text-decoration: none; background: var(--accent); color: var(--bg); }
+        footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2d31;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 0;
+            list-style: none;
+            padding: 0;
+        }
+        .screenshots li { margin: 0; }
+        .screenshots img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            aspect-ratio: 9 / 20;
+            object-fit: cover;
+            background: #000;
+            display: block;
+        }
+        .screenshots figcaption {
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <p class="crumbs"><a href="../">&larr; Lumina Chronos</a></p>
+    <h1>Lumina Chronos for iOS</h1>
+    <p class="tagline">A focused Pomodoro timer for iPhone and iPad. Offline by design — no accounts, no network, no tracking.</p>
+
+    <h2>What it does</h2>
+    <ul>
+        <li><strong>Glowing color-band timer ring</strong> — green flow, yellow Slow Down at the threshold, red Finish for the last stretch.</li>
+        <li><strong>Final-5-second audible ticks</strong> so you can finish a thought without staring at the screen.</li>
+        <li><strong>Threshold ding + haptic</strong> on every phase transition, plus a long haptic pattern at session completion.</li>
+        <li><strong>Daily Spark</strong> — 50 built-in focus quotes, with a featured quote that rotates between sessions.</li>
+        <li><strong>Configurable</strong> focus and break durations, rounds per cycle, sound volume, vibration, countdown ticker, auto-start breaks, pause-on-minimize, background animation, and orientation lock.</li>
+        <li><strong>Resumes where you left off</strong> — close the app mid-session and the timer picks back up on the wall-clock when you return.</li>
+        <li><strong>Offline by design</strong> — no network requests, no analytics, no advertising IDs.</li>
+    </ul>
+
+    <h2>Screenshots</h2>
+    <ul class="screenshots">
+        <li><figure><img src="screenshots/01-ready.png" alt="Timer ready, green ring at 20:00" /><figcaption>Ready</figcaption></figure></li>
+        <li><figure><img src="screenshots/02-run.png" alt="Running, green flow phase" /><figcaption>Run — green flow</figcaption></figure></li>
+        <li><figure><img src="screenshots/03-slow-down.png" alt="Paused on yellow Slow Down phase" /><figcaption>Slow Down</figcaption></figure></li>
+        <li><figure><img src="screenshots/04-finish.png" alt="Finish phase, red ring, final ticks" /><figcaption>Finish</figcaption></figure></li>
+        <li><figure><img src="screenshots/05-short-break.png" alt="Short break, cyan ring" /><figcaption>Short break</figcaption></figure></li>
+        <li><figure><img src="screenshots/06-long-break.png" alt="Long break, round 4 of 4" /><figcaption>Long break</figcaption></figure></li>
+        <li><figure><img src="screenshots/07-quotes.png" alt="Daily Spark focus quotes" /><figcaption>Daily Spark</figcaption></figure></li>
+        <li><figure><img src="screenshots/08-settings.png" alt="Settings — durations, sound, haptics" /><figcaption>Settings</figcaption></figure></li>
+    </ul>
+
+    <h2>Requirements</h2>
+    <ul>
+        <li>iOS 17.0 or newer (iPhone &amp; iPad)</li>
+        <li>Device with a Taptic Engine recommended for haptic cues</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <p>No data is collected. No network requests. All settings are stored locally on the device. <a href="privacy.html">Read the full privacy policy</a>.</p>
+
+    <div class="links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="../android/">Android version</a>
+        <a href="https://github.com/albenrisdev">GitHub</a>
+    </div>
+
+    <footer>
+        &copy; 2026 Alben Risdev
+    </footer>
+</main>
+</body>
+</html>

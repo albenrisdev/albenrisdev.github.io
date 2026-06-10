@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Lumina Chronos for iOS</title>
+    <meta name="description" content="Privacy policy for the Lumina Chronos iOS Pomodoro timer." />
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #111316;
+            --fg: #e7e9ec;
+            --muted: #9aa0a6;
+            --accent: #6cc070;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.65;
+        }
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 0.25rem;
+            letter-spacing: -0.02em;
+        }
+        .updated {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0 0 2rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.5rem;
+        }
+        a { color: var(--accent); }
+        ul { padding-left: 1.25rem; }
+        li { margin: 0.3rem 0; }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2d31;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .back { display: inline-block; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="back" href="index.html">&larr; Back</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 10 June 2026</p>
+
+    <p>This privacy policy applies to the <strong>Lumina Chronos</strong> iOS application (the &ldquo;App&rdquo;) published by Alben Risdev (the &ldquo;Developer&rdquo;).</p>
+
+    <h2>Summary</h2>
+    <p>Lumina Chronos does not collect, store, transmit, or share any personal information. It does not require an account, does not access the internet, and does not include analytics, advertising, or tracking of any kind.</p>
+
+    <h2>Data the App handles</h2>
+    <ul>
+        <li><strong>Timer settings</strong> (focus and break durations, rounds per cycle, sound volume, vibration, countdown ticker, auto-start breaks, background animation, pause-on-minimize, orientation) &mdash; stored locally on your device using <code>UserDefaults</code>. They never leave the device.</li>
+        <li><strong>Active session state</strong> (current phase, remaining time, completed rounds) &mdash; held in memory and written to a local snapshot so the timer survives the app being backgrounded or the system reclaiming it. Cleared when the session ends or the app is uninstalled.</li>
+    </ul>
+
+    <h2>Permissions the App requests</h2>
+    <p>The App does not request any iOS runtime permissions. It does not access the network, contacts, calendar, location, microphone, camera, photos, health data, or any sensor beyond the device&rsquo;s Taptic Engine for haptic cues. Haptics use the standard <code>UIImpactFeedbackGenerator</code> and Core Haptics APIs, which do not require a permission prompt.</p>
+
+    <h2>What the App does not do</h2>
+    <ul>
+        <li>No network requests. No servers. The App functions fully offline.</li>
+        <li>No analytics SDKs, no third-party crash-reporting, no advertising identifiers (the App does not use <code>AppTrackingTransparency</code> because it does not track).</li>
+        <li>No iCloud or third-party sync of timer state.</li>
+        <li>No push notifications, no background fetch, no location services.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The App is suitable for all ages and does not knowingly process data from anyone.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published at this URL with a new &ldquo;Last updated&rdquo; date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to <a href="mailto:albenromanov@gmail.com">albenromanov@gmail.com</a>.</p>
+
+    <footer>
+        &copy; 2026 Alben Risdev
+    </footer>
+</main>
+</body>
+</html>

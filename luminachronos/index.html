@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lumina Chronos — Pomodoro for Android</title>
-    <meta name="description" content="A focused Pomodoro timer for Android. Color-band cues, home-screen widget, offline by design — no accounts, no tracking." />
+    <title>Lumina Chronos — Pomodoro timer for Android & iOS</title>
+    <meta name="description" content="A focused Pomodoro timer with color-band cues, offline by design. Available on Android and iOS." />
     <style>
         :root {
             color-scheme: dark;
@@ -13,6 +13,8 @@
             --muted: #9aa0a6;
             --accent: #6cc070;
             --accent-soft: rgba(108, 192, 112, 0.12);
+            --card: #181b1f;
+            --border: #2a2d31;
         }
         * { box-sizing: border-box; }
         html, body {
@@ -38,106 +40,67 @@
             color: var(--muted);
             margin: 0 0 2.5rem;
         }
-        h2 {
+        .platforms {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 560px) {
+            .platforms { grid-template-columns: 1fr 1fr; }
+        }
+        .platform {
+            display: block;
+            padding: 1.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            color: var(--fg);
+            text-decoration: none;
+            transition: border-color 0.15s ease, transform 0.15s ease;
+        }
+        .platform:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .platform h2 {
+            margin: 0 0 0.25rem;
             font-size: 1.25rem;
-            margin: 2.5rem 0 0.75rem;
-        }
-        ul { padding-left: 1.25rem; }
-        li { margin: 0.4rem 0; }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-        .links a {
-            display: inline-block;
-            padding: 0.6rem 1.1rem;
-            background: var(--accent-soft);
-            border: 1px solid var(--accent);
-            border-radius: 999px;
             color: var(--accent);
-            font-weight: 500;
         }
-        .links a:hover { text-decoration: none; background: var(--accent); color: var(--bg); }
+        .platform p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
         footer {
             margin-top: 4rem;
             padding-top: 1.5rem;
-            border-top: 1px solid #2a2d31;
+            border-top: 1px solid var(--border);
             color: var(--muted);
             font-size: 0.9rem;
         }
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0 0;
-            list-style: none;
-            padding: 0;
-        }
-        .screenshots li { margin: 0; }
-        .screenshots img {
-            width: 100%;
-            height: auto;
-            border-radius: 14px;
-            aspect-ratio: 9 / 20;
-            object-fit: cover;
-            background: #000;
-            display: block;
-        }
-        .screenshots figcaption {
-            color: var(--muted);
-            font-size: 0.85rem;
-            text-align: center;
-            margin-top: 0.5rem;
-        }
+        a { color: var(--accent); }
     </style>
 </head>
 <body>
 <main>
     <h1>Lumina Chronos</h1>
-    <p class="tagline">A focused Pomodoro timer for Android. Offline by design — no accounts, no network, no tracking.</p>
+    <p class="tagline">A focused Pomodoro timer. Color-band progress ring, built-in focus quotes, offline by design — no accounts, no network, no tracking.</p>
 
-    <h2>What it does</h2>
-    <ul>
-        <li><strong>Color-band progress ring</strong> — green flow, yellow Slow Down, red Finish.</li>
-        <li><strong>Final-5-second audible ticks</strong> so you can finish a thought without staring at the screen.</li>
-        <li><strong>Home-screen widget</strong> with play, pause, stop, reset, settings, and quotes — backed by a foreground service so it stays accurate while you focus.</li>
-        <li><strong>Daily Spark</strong> — built-in focus quotes between sessions.</li>
-        <li><strong>Pause on minimize</strong>, configurable durations, rounds, volume, vibration, auto-start, orientation.</li>
-        <li><strong>Verified offline</strong> — the manifest declares no <code>INTERNET</code> permission at all.</li>
-    </ul>
-
-    <h2>Screenshots</h2>
-    <ul class="screenshots">
-        <li><figure><img src="screenshots/phone-01-ready.png" alt="Timer ready, green ring" /><figcaption>Ready</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-02-run.png" alt="Running, green phase" /><figcaption>Run — green flow</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-03-slow-down.png" alt="Slow Down, yellow ring" /><figcaption>Slow Down</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-04-finish.png" alt="Finish, red ring, final ticks" /><figcaption>Finish</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-05-short-break.png" alt="Short break, cyan ring" /><figcaption>Short break</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-06-long-break.png" alt="Long break, round 4 of 4" /><figcaption>Long break</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-07-quotes.png" alt="Daily Spark focus quotes" /><figcaption>Daily Spark</figcaption></figure></li>
-        <li><figure><img src="screenshots/phone-08-settings.png" alt="Settings — durations, sound, haptics" /><figcaption>Settings</figcaption></figure></li>
-    </ul>
-
-    <h2>Requirements</h2>
-    <ul>
-        <li>Android 8.0 (API 26) or newer</li>
-        <li>Phone with a vibration motor recommended for haptic cues</li>
-    </ul>
-
-    <h2>Privacy</h2>
-    <p>No data is collected. No network requests. All settings are stored locally on the device. <a href="privacy.html">Read the full privacy policy</a>.</p>
-
-    <div class="links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="https://github.com/albenrisdev">GitHub</a>
+    <div class="platforms">
+        <a class="platform" href="ios/">
+            <h2>iOS &rarr;</h2>
+            <p>iPhone &amp; iPad. iOS 17 or newer.</p>
+        </a>
+        <a class="platform" href="android/">
+            <h2>Android &rarr;</h2>
+            <p>Phone. Android 8.0 (API 26) or newer.</p>
+        </a>
     </div>
 
     <footer>
-        &copy; 2026 Alben Risdev · Licensed under Apache 2.0
+        &copy; 2026 Alben Risdev · <a href="https://github.com/albenrisdev">GitHub</a>
     </footer>
 </main>
 </body>
