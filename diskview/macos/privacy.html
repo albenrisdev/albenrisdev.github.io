@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — DiskView for macOS</title>
+    <meta name="description" content="Privacy policy for the DiskView macOS disk-usage analyzer." />
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #111316;
+            --fg: #e7e9ec;
+            --muted: #9aa0a6;
+            --accent: #6cc070;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.65;
+        }
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 0.25rem;
+            letter-spacing: -0.02em;
+        }
+        .updated {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin: 0 0 2rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.5rem;
+        }
+        a { color: var(--accent); }
+        ul { padding-left: 1.25rem; }
+        li { margin: 0.3rem 0; }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2d31;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        .back { display: inline-block; margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="back" href="../">&larr; Back</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 21 June 2026</p>
+
+    <p>This privacy policy applies to the <strong>DiskView</strong> macOS application (the &ldquo;App&rdquo;) published by Alben Risdev (the &ldquo;Developer&rdquo;).</p>
+
+    <h2>Summary</h2>
+    <p>DiskView does not collect, store, transmit, or share any personal information. It does not require an account, does not access the internet, and does not include analytics, advertising, or tracking of any kind. Everything it does happens locally on your Mac.</p>
+
+    <h2>Data the App handles</h2>
+    <ul>
+        <li><strong>Folder access grants</strong> &mdash; when you choose folders to scan, macOS gives the App permission to read them. The App stores these grants as security-scoped bookmarks so your selection is remembered across launches. They are kept locally on your device and never leave it.</li>
+        <li><strong>Preferences</strong> (minimum file size, whether to include hidden files, folder exclusions, and appearance) &mdash; stored locally using <code>UserDefaults</code>.</li>
+        <li><strong>Last scan results</strong> &mdash; a summary of your most recent scan is written to the App&rsquo;s private sandbox container (Application Support) so results reappear when you reopen the App. This stays on your device and is removed when you uninstall the App.</li>
+    </ul>
+
+    <h2>Permissions the App requests</h2>
+    <p>The App runs inside Apple&rsquo;s App Sandbox. It can only read the folders you explicitly grant it through the standard macOS open panel. It does not access the network, contacts, calendar, location, microphone, camera, photos, or any other personal data source.</p>
+
+    <h2>Changes the App can make to your files</h2>
+    <p>The only change DiskView ever makes to your files is moving items to the Trash &mdash; and only when you explicitly ask it to. Trashed items remain recoverable from the Finder. DiskView never deletes files permanently and makes no other modifications.</p>
+
+    <h2>What the App does not do</h2>
+    <ul>
+        <li>No network requests. No servers. The App functions fully offline.</li>
+        <li>No analytics SDKs, no third-party crash-reporting, no advertising identifiers, no tracking.</li>
+        <li>No iCloud or third-party sync of your scan data.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>The App is suitable for all ages and does not knowingly process data from anyone.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published at this URL with a new &ldquo;Last updated&rdquo; date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to <a href="mailto:albenrisdev@gmail.com">albenrisdev@gmail.com</a>.</p>
+
+    <footer>
+        &copy; 2026 Alben Risdev
+    </footer>
+</main>
+</body>
+</html>

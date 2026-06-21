@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiskView — disk-usage analyzer for macOS</title>
+    <meta name="description" content="DiskView shows where your storage goes: a visual treemap, the largest files and folders, duplicates, and stale-file cleanup. Sandboxed and private. For macOS." />
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #111316;
+            --fg: #e7e9ec;
+            --muted: #9aa0a6;
+            --accent: #6cc070;
+            --card: #181b1f;
+            --border: #2a2d31;
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 6rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--muted);
+            margin: 0 0 2rem;
+        }
+        a { color: var(--accent); }
+        .cta {
+            display: inline-block;
+            margin: 0.5rem 0 2.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--accent);
+            color: #08130a;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        h2 { font-size: 1.25rem; margin: 2.5rem 0 0.5rem; }
+        ul { padding-left: 1.25rem; }
+        li { margin: 0.35rem 0; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1rem;
+        }
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>DiskView</h1>
+    <p class="tagline">See where your storage goes &mdash; and reclaim it. A disk-usage analyzer for macOS.</p>
+
+    <a class="cta" href="https://apps.apple.com/app/id6782555424">View on the Mac App Store</a>
+
+    <p>DiskView scans the folders you choose and shows what&rsquo;s taking up space with a proportional treemap and a drill-down hierarchy. It runs in Apple&rsquo;s App Sandbox, collects no data, and never sends anything off your Mac.</p>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Visual treemap of folders and files &mdash; click to zoom in.</li>
+        <li>Largest files &amp; folders, ranked by size.</li>
+        <li>Duplicate finder (byte-for-byte) with reclaimable-space totals.</li>
+        <li>Old &amp; unused files, and a cleanup view.</li>
+        <li>Move items to the Trash on request &mdash; always recoverable.</li>
+    </ul>
+
+    <h2>Support</h2>
+    <div class="card">
+        <p>Questions, bug reports, or feedback? Email
+        <a href="mailto:albenrisdev@gmail.com">albenrisdev@gmail.com</a> and I&rsquo;ll get back to you.</p>
+    </div>
+
+    <h2>Privacy</h2>
+    <p>DiskView collects no data. Read the full <a href="macos/privacy.html">privacy policy</a>.</p>
+
+    <footer>
+        &copy; 2026 Alben Risdev
+    </footer>
+</main>
+</body>
+</html>
