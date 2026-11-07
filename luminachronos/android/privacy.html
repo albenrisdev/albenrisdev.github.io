@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy — Lumina Chronos</title>
-    <meta name="description" content="Privacy policy for Lumina Chronos, a Wear OS Pomodoro timer." />
+    <title>Privacy Policy — Lumina Chronos for Android</title>
+    <meta name="description" content="Privacy policy for Lumina Chronos for Android phones and Wear OS, by Alben Risdev. Covers the Google AdMob ads shown in the phone app." />
     <style>
         :root {
             color-scheme: dark;
@@ -57,37 +57,55 @@
 <main>
     <a class="back" href="index.html">&larr; Back</a>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 26 May 2026</p>
+    <p class="updated">Last updated: 7 November 2026</p>
 
-    <p>This privacy policy applies to the <strong>Lumina Chronos</strong> Wear OS application (the &ldquo;App&rdquo;) published by Alben Risdev (the &ldquo;Developer&rdquo;).</p>
+    <p>This privacy policy applies to <strong>Lumina Chronos</strong> for Android phones, package name <code>com.albenrisdev.luminachronos</code> (the &ldquo;App&rdquo;), and to the <strong>Lumina Chronos</strong> Wear OS app, package name <code>com.albenrisdev.luminachronos.wear</code>, both published by Alben Risdev (the &ldquo;Developer&rdquo;).</p>
 
     <h2>Summary</h2>
-    <p>Lumina Chronos does not collect, store, transmit, or share any personal information. It does not require an account, does not access the internet, and does not include analytics, advertising, or tracking of any kind.</p>
+    <p>The App does not require an account, and the Developer does not receive any personal information from it. From version 1.2.0 the App is free and shows banner ads provided by Google AdMob. Google may collect and use some information to show those ads, as described below. The App has no analytics or tracking of its own, and it does not sell data. The Wear OS app shows no ads and collects nothing.</p>
 
-    <h2>Data the App handles</h2>
+    <h2>Data the App stores on your device</h2>
     <ul>
-        <li><strong>Timer settings</strong> (work / break durations, rounds, volume, vibration, auto-start, tick, ambient display, pause-on-minimize) — stored locally on your watch using Android DataStore. They never leave the device.</li>
-        <li><strong>Active session state</strong> (current phase, remaining time, completed rounds) — held in memory and a local snapshot on disk so the timer survives the watch reclaiming the app. Cleared when the session ends or the app is uninstalled.</li>
+        <li><strong>Timer settings</strong>: focus and break durations, rounds per cycle, volume, vibration, countdown ticker, auto-start breaks, background animation, pause on minimize and orientation.</li>
+        <li><strong>Session state</strong>: the current phase, remaining time and round, so the timer survives the app being closed by the system.</li>
+        <li><strong>Counters</strong>: completed rounds and sessions. They are used for the round display, to decide when the banner ad appears, and to show Google Play&rsquo;s review prompt once.</li>
     </ul>
+    <p>This data is stored only on your device and the Developer never receives it. It is not included in Android backups (<code>android:allowBackup="false"</code>). Uninstalling the App removes it.</p>
+
+    <h2>Advertising (Google AdMob)</h2>
+    <p>The App uses the Google Mobile Ads SDK to show a banner ad at the top of the timer screen during every third round. The home-screen widget and the timer notification never show ads. Google, as the ad provider, may collect and use:</p>
+    <ul>
+        <li>your Android advertising ID, which you can reset or delete in your device settings;</li>
+        <li>your IP address and an approximate location derived from it;</li>
+        <li>device and app information, such as the device model, operating system and app version;</li>
+        <li>information about ads you are shown and how you interact with them.</li>
+    </ul>
+    <p>Google uses this information to show, limit and measure ads, and may show personalised ads where your choices allow it. Google&rsquo;s own handling of this data is described in its privacy policy at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>, and in <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites or apps that use its services</a>.</p>
+    <p><strong>Your choices.</strong> If you are in the United Kingdom, the European Economic Area or Switzerland, you will see a consent form from Google when you first open the App, and your answer controls whether personalised ads are used. You can change your answer at any time in the App under <em>Settings &rarr; Ad privacy choices</em>. You can also opt out of personalised ads, or reset or delete your advertising ID, in your Android settings. Turning off ads personalisation does not remove ads.</p>
 
     <h2>Permissions the App requests, and why</h2>
     <ul>
-        <li><code>POST_NOTIFICATIONS</code> — to display the ongoing timer notification on Wear OS 3+ (Android 13+).</li>
-        <li><code>FOREGROUND_SERVICE</code> &amp; <code>FOREGROUND_SERVICE_SPECIAL_USE</code> — to keep the timer visible in ambient (low-power) mode while a session is running, the same pattern Wear OS workout and navigation apps use. The service runs only during an active session and stops immediately on completion, pause, or reset.</li>
-        <li><code>VIBRATE</code> — for end-of-phase haptic cues.</li>
-        <li><code>WAKE_LOCK</code> — held only while the countdown is actively ticking, released the moment the session is paused or ends.</li>
+        <li><code>VIBRATE</code>: haptic cues at colour changes and when a session ends. You can turn this off in Settings.</li>
+        <li><code>POST_NOTIFICATIONS</code>: the ongoing notification shown while the home-screen widget timer is running (Android 13 and later).</li>
+        <li><code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_SPECIAL_USE</code>: keep the widget timer accurate while you use other apps. The service runs only during an active widget session.</li>
+        <li><code>INTERNET</code> and <code>ACCESS_NETWORK_STATE</code>: to load ads from Google. The timer itself works fully offline; without a connection, ads simply don&rsquo;t appear.</li>
+        <li><code>AD_ID</code>: lets the Google Mobile Ads SDK use your advertising ID, as described above.</li>
     </ul>
+    <p>The App does not request access to your contacts, precise location, microphone, camera, photos or any other sensitive data.</p>
 
     <h2>What the App does not do</h2>
     <ul>
-        <li>No network requests. No servers. The App functions fully offline.</li>
-        <li>No analytics SDKs, no crash-reporting that sends data off-device, no advertising IDs.</li>
-        <li>No access to contacts, calendar, location, microphone, camera, photos, health data, or any sensor beyond the watch&rsquo;s vibration motor.</li>
-        <li>No cloud backup of timer state. <code>android:allowBackup="false"</code> is set in the manifest.</li>
+        <li>No accounts, cloud sync or servers run by the Developer.</li>
+        <li>No analytics or crash-reporting SDKs from the Developer.</li>
+        <li>No in-app purchases.</li>
+        <li>No selling of personal data.</li>
     </ul>
 
+    <h2>Lumina Chronos for Wear OS</h2>
+    <p>The Wear OS app does not access the internet and has no ads, analytics or tracking. Its timer settings and session state are stored only on your watch. It requests <code>POST_NOTIFICATIONS</code> for the ongoing timer notification, <code>FOREGROUND_SERVICE</code> and <code>FOREGROUND_SERVICE_SPECIAL_USE</code> to keep the timer visible in ambient mode during a session, <code>VIBRATE</code> for haptic cues, and <code>WAKE_LOCK</code> only while the countdown is ticking.</p>
+
     <h2>Children</h2>
-    <p>The App is suitable for all ages and does not knowingly process data from anyone.</p>
+    <p>The App is intended for adults and is not directed at children. It does not knowingly collect personal information from children.</p>
 
     <h2>Changes to this policy</h2>
     <p>If this policy changes, the updated version will be published at this URL with a new &ldquo;Last updated&rdquo; date.</p>
