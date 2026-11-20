@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#191A1F">
+  <meta name="description" content="A calm Pomodoro focus timer with glowing colour cues, breaks, rounds and motivational quotes.">
+  <title>Lumina Chronos</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-48.png" sizes="48x48">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preload" href="fonts/SpecialElite.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div id="glow" aria-hidden="true"></div>
+
+  <div class="shell">
+    <nav class="tabs" aria-label="Lumina Chronos">
+      <button class="tab" data-tab="timer" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>
+        <span data-i18n="Timer">Timer</span>
+      </button>
+      <button class="tab" data-tab="quotes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 9.5h2v2.5l-1 1.5M13.5 9.5h2v2.5l-1 1.5"/></svg>
+        <span data-i18n="Quotes">Quotes</span>
+      </button>
+      <button class="tab" data-tab="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        <span data-i18n="Settings">Settings</span>
+      </button>
+    </nav>
+
+    <main>
+      <!-- Timer -->
+      <section id="screen-timer" class="screen timer-screen">
+        <h1 class="brand">Lumina Chronos</h1>
+        <div class="ring-wrap">
+          <canvas id="ring" width="280" height="280" aria-hidden="true"></canvas>
+          <div class="ring-text">
+            <div id="time" class="time" role="timer" aria-live="off">25:00</div>
+            <div id="round" class="round">Round 1/4</div>
+          </div>
+        </div>
+        <div id="status" class="status" aria-live="polite">Ready</div>
+        <div class="controls">
+          <button id="btn-reset" class="ctl" data-i18n-label="Reset">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5"/></svg>
+          </button>
+          <button id="btn-main" class="ctl main" data-i18n-label="Play">
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" class="fill"/></svg>
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" class="fill"/></svg>
+          </button>
+          <button id="btn-right" class="ctl" data-i18n-label="Skip">
+            <svg class="i-skip" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6v12l8.5-6z" class="fill"/><path d="M17 6h2v12h-2z" class="fill"/></svg>
+            <svg class="i-stop" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10H7z" class="fill"/></svg>
+          </button>
+        </div>
+        <figure class="card quote-card">
+          <blockquote id="quote-text"></blockquote>
+          <figcaption id="quote-author"></figcaption>
+        </figure>
+      </section>
+
+      <!-- Quotes -->
+      <section id="screen-quotes" class="screen quotes-screen" hidden>
+        <h1 class="brand">Lumina Chronos</h1>
+        <h2 class="page-title" data-i18n="Daily Spark">Daily Spark</h2>
+        <button id="featured" class="card featured">
+          <svg class="quote-mark" viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M10 7H6.5A2.5 2.5 0 0 0 4 9.5V13h4v1.5A2.5 2.5 0 0 1 5.5 17H5v2h.5A4.5 4.5 0 0 0 10 14.5zM20 7h-3.5A2.5 2.5 0 0 0 14 9.5V13h4v1.5a2.5 2.5 0 0 1-2.5 2.5H15v2h.5a4.5 4.5 0 0 0 4.5-4.5z"/></svg>
+          <span id="featured-text" class="featured-text"></span>
+          <span id="featured-author" class="featured-author"></span>
+          <span class="hint" data-i18n="Click for another">Click for another</span>
+        </button>
+        <ul id="quote-list" class="quote-list"></ul>
+      </section>
+
+      <!-- Settings -->
+      <section id="screen-settings" class="screen settings-screen" hidden>
+        <h1 class="brand">Lumina Chronos</h1>
+        <h2 class="page-title" data-i18n="Settings">Settings</h2>
+
+        <h3 class="section" data-i18n="FOCUS INTERVALS">FOCUS INTERVALS</h3>
+        <div class="row stepper" data-key="workDurationMinutes" data-min="5" data-max="90" data-step="5" data-format="mm">
+          <span class="label" data-i18n="Focus Duration">Focus Duration</span>
+        </div>
+        <div class="row stepper" data-key="shortBreakMinutes" data-min="1" data-max="30" data-step="1" data-format="mm">
+          <span class="label" data-i18n="Short Break">Short Break</span>
+        </div>
+        <div class="row stepper" data-key="longBreakMinutes" data-min="5" data-max="60" data-step="5" data-format="mm">
+          <span class="label" data-i18n="Long Break">Long Break</span>
+        </div>
+        <div class="row stepper" data-key="roundsPerCycle" data-min="2" data-max="10" data-step="1" data-format="int">
+          <span class="label" data-i18n="Rounds per Cycle">Rounds per Cycle</span>
+        </div>
+
+        <hr>
+        <div class="row">
+          <div>
+            <div class="label" data-i18n="Reset Rounds">Reset Rounds</div>
+            <div id="completed" class="sub"></div>
+          </div>
+          <button id="btn-reset-rounds" class="link" data-i18n="Reset">Reset</button>
+        </div>
+
+        <hr>
+        <h3 class="section" data-i18n="SOUND">SOUND</h3>
+        <div class="row column">
+          <label class="label" for="volume" data-i18n="Sound Volume">Sound Volume</label>
+          <input id="volume" type="range" min="0" max="15" step="1">
+        </div>
+        <div class="row toggle" data-key="countdownTickerEnabled"><span class="label" data-i18n="Countdown Ticker">Countdown Ticker</span></div>
+
+        <hr>
+        <h3 class="section" data-i18n="BEHAVIOR">BEHAVIOR</h3>
+        <div class="row toggle" data-key="autoStartBreaks"><span class="label" data-i18n="Auto-start Breaks">Auto-start Breaks</span></div>
+        <div class="row toggle" data-key="backgroundAnimationEnabled"><span class="label" data-i18n="Background Animation">Background Animation</span></div>
+        <div class="row toggle" data-key="pauseOnMinimize"><span class="label" data-i18n="Pause on Minimize">Pause on Minimize</span></div>
+
+        <div id="other-stores-section" hidden>
+          <hr>
+          <button id="btn-other-stores" class="row option">
+            <span>
+              <span id="other-stores-button" class="label"></span>
+              <span id="other-stores-hint" class="sub"></span>
+            </span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="footer-space"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="stores-dialog" aria-labelledby="stores-title">
+    <h2 id="stores-title"></h2>
+    <p id="stores-text"></p>
+    <div id="stores" class="stores"></div>
+    <div class="dialog-actions"><button id="stores-close" class="link"></button></div>
+  </dialog>
+
+  <script src="strings.js"></script>
+  <script src="strings-windows.js"></script>
+  <script src="other-stores.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
