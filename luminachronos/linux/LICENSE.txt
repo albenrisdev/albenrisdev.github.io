@@ -1,5 +1,5 @@
 Lumina Chronos
-Copyright (c) 2026 albenrisdev. All rights reserved.
+Copyright (c) 2026 Alben Isayev. All rights reserved.
 
 This software, including its source code, sounds, images and text, is proprietary. You may download,
 install and use it for personal or work purposes free of charge. You may not copy, modify, redistribute,
